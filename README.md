@@ -20,6 +20,8 @@ cp .env.example .env
 
 sail up -d
 
+sa key:generate
+
 sa migrate
 
 sail npm install

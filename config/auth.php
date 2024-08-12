@@ -40,6 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'teammate' => [
+            'driver' => 'session',
+            'provider' => 'teammates',
+        ],
     ],
 
     /*
@@ -62,14 +67,14 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', App\Models\Teammate::class),
-            // 'model' => env('AUTH_MODEL', App\Models\User::class),
+            'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'teammates' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\Teammate::class),
+        ],
+
     ],
 
     /*

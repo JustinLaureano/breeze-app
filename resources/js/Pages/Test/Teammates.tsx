@@ -1,9 +1,6 @@
-import { Link, Head, router } from '@inertiajs/react';
+import { Head, router } from '@inertiajs/react';
 import GuestLayout from '@/Layouts/GuestLayout';
-import { PageProps } from '@/types';
-import { useEffect } from 'react';
-import { toast } from 'react-toastify';
-import axios from 'axios';
+import { Button } from '@mui/material';
 
 interface Props {
     auth: any,
@@ -22,7 +19,7 @@ export default function Teammates({ auth, ...rest } : Props) {
 
                 <h1>Teammates Page</h1>
 
-                <button onClick={clockout} className="border border-black p-1 rounded">Clock Out</button>
+                <Button variant="contained" onClick={clockout}>Clock Out</Button>
 
             </div>
         </GuestLayout>

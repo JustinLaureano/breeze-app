@@ -8,15 +8,17 @@ Route::get('/', function () {
     return Inertia::render('Welcome');
 });
 
+
 Route::get('/dashboard', function () {
-
-
         return Inertia::render('Dashboard', [
             'tests' => Test::latest()->paginate()
         ]);
 
     })
-    ->middleware(['auth', 'verified'])->name('dashboard');
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
+
+
 
 
 Route::get('/teammates', function () {
@@ -24,7 +26,7 @@ Route::get('/teammates', function () {
         return Inertia::render('Test/Teammates');
 
     })
-    ->middleware(['auth'])
+    ->middleware(['auth:teammate'])
     ->name('teammates');
 
 

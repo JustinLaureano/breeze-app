@@ -21,7 +21,9 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
-
-    Route::post('clockout', [ClockinController::class, 'destroy'])
-        ->name('clockout');
 });
+
+
+Route::middleware('auth:teammate')
+    ->post('clockout', [ClockinController::class, 'destroy'])
+    ->name('clockout');

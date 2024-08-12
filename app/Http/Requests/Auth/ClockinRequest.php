@@ -40,10 +40,12 @@ class ClockinRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-        // Auth::loginUsingId($this->only('clock_number'));
+        $validLogin = Auth::guard('teammate')->loginUsingId($this->only('clock_number'));
 
-        // if (! Auth::attempt($this->only('clock_number')) ) {
-        if (! Auth::loginUsingId($this->only('clock_number')) ) {
+        \Illuminate\Support\Facades\Log::debug($validLogin);
+
+        if ( !$validLogin )
+        {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
