@@ -1,0 +1,2 @@
+SQL Server connection:
+    - will need to add sql server to docker-compose config. copy
