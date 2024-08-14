@@ -34,6 +34,8 @@ sail npm install
 
 ## Run Dev
 
+Run the following commands from dedicated terminal windows to start all necessary services for application.
+
 ```bash
 sail up -d
 
@@ -59,3 +61,13 @@ sa horizon
 // localhost/telescope
 // localhost/pulse
 ```
+
+
+
+
+## Dev Notes
+
+### Redis
+
+Queue is done in keyspace db0 and caching is done in db1.
+
