@@ -1,10 +1,11 @@
 import { Link, Head } from '@inertiajs/react';
 import { PageProps } from '@/types';
+import DashboardLayout from '@/Layouts/DashboardLayout';
 
 export default function Welcome(props: PageProps) {
   
     return (
-        <>
+        <DashboardLayout>
             <Head title="Welcome" />
             <div>
                 <h1>Welcome</h1>
@@ -17,6 +18,6 @@ export default function Welcome(props: PageProps) {
                 </div>
 
             </div>
-        </>
+        </DashboardLayout>
     );
 }

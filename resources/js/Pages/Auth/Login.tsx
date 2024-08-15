@@ -1,5 +1,5 @@
 import { FormEventHandler, useState } from 'react';
-import GuestLayout from '@/Layouts/GuestLayout';
+import DashboardLayout from '@/Layouts/DashboardLayout';
 import { Head, Link, useForm } from '@inertiajs/react';
 
 export default function Login({ status, canResetPassword }: { status?: string, canResetPassword: boolean }) {
@@ -18,7 +18,7 @@ export default function Login({ status, canResetPassword }: { status?: string, c
     };
 
     return (
-        <GuestLayout>
+        <DashboardLayout>
             <Head title="Log in" />
 
             <form onSubmit={submit}>
@@ -32,6 +32,6 @@ export default function Login({ status, canResetPassword }: { status?: string, c
                 <button type="submit">Submit</button>
 
             </form>
-        </GuestLayout>
+        </DashboardLayout>
     );
 }

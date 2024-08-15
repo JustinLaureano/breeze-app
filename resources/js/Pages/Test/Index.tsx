@@ -1,17 +1,16 @@
-import { Link, Head, router } from '@inertiajs/react';
-import GuestLayout from '@/Layouts/GuestLayout';
+import { Head } from '@inertiajs/react';
 import { PageProps } from '@/types';
-import { useEffect } from 'react';
+import DashboardLayout from '@/Layouts/DashboardLayout';
 
 export default function TestIndex(props: PageProps) {
 
     return (
-        <GuestLayout>
+        <DashboardLayout>
             <Head title="Test Index" />
             <div>
                 <h1 className="pb-4">Test Index</h1>
 
             </div>
-        </GuestLayout>
+        </DashboardLayout>
     );
 }

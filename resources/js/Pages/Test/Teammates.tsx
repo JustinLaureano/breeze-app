@@ -1,6 +1,6 @@
 import { Head, router } from '@inertiajs/react';
-import GuestLayout from '@/Layouts/GuestLayout';
 import { Button } from '@mui/material';
+import DashboardLayout from '@/Layouts/DashboardLayout';
 
 interface Props {
     auth: any,
@@ -13,7 +13,7 @@ export default function Teammates({ auth, ...rest } : Props) {
     }
 
     return (
-        <GuestLayout>
+        <DashboardLayout>
             <Head title="Teammates" />
             <div>
 
@@ -22,6 +22,6 @@ export default function Teammates({ auth, ...rest } : Props) {
                 <Button variant="contained" onClick={clockout}>Clock Out</Button>
 
             </div>
-        </GuestLayout>
+        </DashboardLayout>
     );
 }
