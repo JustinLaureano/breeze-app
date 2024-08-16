@@ -11,9 +11,7 @@ export default function DashboardLayout({ children, ...props }) {
         <Box sx={{
             display: 'flex',
             height: '100vh',
-            backgroundColor: grey[50]
         }}>
-            <CssBaseline />
             <TopAppBar />
 
             <NavigationDrawer />

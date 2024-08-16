@@ -1,14 +1,17 @@
 import React from 'react';
 import { PageProps } from '@/types';
-import { Box, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, useTheme } from '@mui/material';
+import {
+	Box, Divider, Drawer, IconButton, List, ListItem, ListItemButton,
+	ListItemIcon, ListItemText, Toolbar, useTheme
+} from '@mui/material';
+import { Brightness6, LightMode } from '@mui/icons-material';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import { grey } from '@mui/material/colors';
+import ColorModeContext from '@/Contexts/ColorModeContext';
 
 export default function NavigationDrawer(props: PageProps) {
 	const theme = useTheme();
-	console.log(theme)
-	useTheme
+	const colorMode = React.useContext(ColorModeContext);
+
 	const drawerWidth = 180;
 	const railWidth = 60;
 
@@ -30,7 +33,6 @@ export default function NavigationDrawer(props: PageProps) {
 				width: drawerWidth,
 				flexShrink: 0,
 				[`& .MuiDrawer-paper`]: {
-					backgroundColor: grey[50],
 					borderRight: 'none',
 					boxSizing: 'border-box',
 					width: drawerWidth,
@@ -45,7 +47,7 @@ export default function NavigationDrawer(props: PageProps) {
 						<ListItem key={index} disablePadding >
 							<ListItemButton>
 								<ListItemIcon>
-									{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+									{index % 2 === 0 ? <InboxIcon /> : <Brightness6 />}
 								</ListItemIcon>
 								<ListItemText primary={link.label}
 									primaryTypographyProps={{
@@ -57,7 +59,15 @@ export default function NavigationDrawer(props: PageProps) {
 						</ListItem>
 					))}
 				</List>
+
 				{/* <Divider /> */}
+
+				<Box>
+					<IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode}>
+						{theme.palette.mode === 'dark' ? <Brightness6 /> : <LightMode />}
+					</IconButton>
+				</Box>
+
 			</Box>
 		</Drawer>
 	);
