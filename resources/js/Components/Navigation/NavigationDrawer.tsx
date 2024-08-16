@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { PageProps } from '@/types';
 import {
 	Box, Divider, Drawer, IconButton, List, ListItem, ListItemButton,
-	ListItemIcon, ListItemText, Toolbar, useTheme
+	ListItemIcon, ListItemText, Toolbar, Tooltip, useTheme
 } from '@mui/material';
 import { Brightness6, LightMode } from '@mui/icons-material';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
@@ -55,19 +55,21 @@ export default function NavigationDrawer(props: PageProps) {
 			<Box sx={{ overflow: 'hidden' }}>
 				<List>
 					{links.map((link, index) => (
-						<ListItem key={index} disablePadding >
-							<ListItemButton>
-								<ListItemIcon>
-									{index % 2 === 0 ? <InboxIcon /> : <Brightness6 />}
-								</ListItemIcon>
-								<ListItemText primary={link.label}
-									primaryTypographyProps={{
-										fontWeight: 'medium',
-										variant: 'navLabel',
-									}}
-								/>
-							</ListItemButton>
-						</ListItem>
+						<Tooltip title={link.label} placement="right" arrow>
+							<ListItem key={index} disablePadding >
+								<ListItemButton>
+									<ListItemIcon>
+										{index % 2 === 0 ? <InboxIcon /> : <Brightness6 />}
+									</ListItemIcon>
+									<ListItemText primary={link.label}
+										primaryTypographyProps={{
+											fontWeight: 'medium',
+											variant: 'navLabel',
+										}}
+									/>
+								</ListItemButton>
+							</ListItem>
+						</Tooltip>
 					))}
 				</List>
 
