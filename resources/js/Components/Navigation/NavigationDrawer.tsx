@@ -35,10 +35,18 @@ export default function NavigationDrawer(props: PageProps) {
 			sx={{
 				width: drawerWidth,
 				flexShrink: 0,
+				transition: theme.transitions.create('width', {
+					easing: theme.transitions.easing.easeOut,
+					duration: theme.transitions.duration.standard,
+				}),
 				[`& .MuiDrawer-paper`]: {
 					borderRight: 'none',
 					boxSizing: 'border-box',
 					width: drawerWidth,
+					transition: theme.transitions.create('width', {
+						easing: theme.transitions.easing.easeOut,
+						duration: theme.transitions.duration.standard,
+					})
 				},
 			}}
 		>
