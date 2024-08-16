@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { PageProps } from '@/types';
 import {
 	Box, Divider, Drawer, IconButton, List, ListItem, ListItemButton,
@@ -7,13 +7,16 @@ import {
 import { Brightness6, LightMode } from '@mui/icons-material';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import ColorModeContext from '@/Contexts/ColorModeContext';
+import UIContext from '@/Contexts/UIContext';
 
 export default function NavigationDrawer(props: PageProps) {
 	const theme = useTheme();
 	const colorMode = React.useContext(ColorModeContext);
+	const { navigationDrawerOpen } = useContext(UIContext);
 
-	const drawerWidth = 180;
-	const railWidth = 60;
+	const drawerWidth = navigationDrawerOpen
+		? theme.layouts.dashboard.drawerWidth
+		: theme.layouts.dashboard.drawerRailWidth;
 
 	const links = [
 		{ label: 'Home', icon: '', route: route('home') },
@@ -41,7 +44,7 @@ export default function NavigationDrawer(props: PageProps) {
 		>
 			<Toolbar variant="dense" />
 
-			<Box sx={{ overflow: 'auto' }}>
+			<Box sx={{ overflow: 'hidden' }}>
 				<List>
 					{links.map((link, index) => (
 						<ListItem key={index} disablePadding >
